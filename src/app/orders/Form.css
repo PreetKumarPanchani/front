@@ -1,0 +1,9 @@
+.form-container {
+	border-radius: 1.25em;
+	padding: 1.25em;
+	border: 1px solid hsl(0, 0%, 30%);
+}
+
+.light .form-container {
+	border: 1px solid hsl(0, 0%, 70%);
+}

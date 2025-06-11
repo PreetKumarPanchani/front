@@ -1,0 +1,26 @@
+.order-form {
+	display: flex;
+	flex-direction: column;
+	row-gap: 1em;
+}
+
+.order-form .order-form-params {
+	display: grid;
+	column-gap: 1em;
+	row-gap: 0.5rem;
+}
+
+:is(.filter-item, .filter-item-select) {
+	display: flex;
+	justify-content: space-between;
+	flex-direction: column;
+}
+
+.filter-item :is(label, input),
+.filter-item-select :is(label, select) {
+	flex: 1;
+}
+
+.filter-item label {
+	font-size: 0.875rem;
+}

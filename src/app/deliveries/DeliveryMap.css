@@ -1,0 +1,22 @@
+.map-view {
+	display: flex;
+	justify-content: center;
+	/* sort of a hack to get the map centred */
+}
+
+.maplibregl-popup.maplibregl-popup-anchor-bottom .maplibregl-popup-content {
+	padding: 0.875em;
+}
+
+.maplibregl-marker.has-onclick {
+	cursor: pointer;
+}
+
+/* .maplibregl-marker.location-marker > svg > g > g[fill="none"] { */
+.maplibregl-marker.location-marker {
+	--marker-fill: orange;
+}
+
+.maplibregl-marker.location-marker.location-selected {
+	--marker-fill: green;
+}

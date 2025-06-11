@@ -1,0 +1,57 @@
+{
+	"include": [
+		"./src/**/*.js",
+		"./src/**/*.ts",
+		"./tests/**/*.js",
+		"./tests/**/*.ts",
+		"./types/**/$types.d.ts",
+		"./vite.config.js",
+		"./vite.config.ts",
+		"ambient.d.ts",
+		"build/types/**/*.ts",
+		"non-ambient.d.ts",
+		".next/types/**/*.ts"
+	],
+	"exclude": [
+		"./node_modules/**",
+		"./src/service-worker.js",
+		"./src/service-worker/**/*.js",
+		"./src/service-worker.ts",
+		"./src/service-worker/**/*.ts",
+		"./src/service-worker.d.ts",
+		"./src/service-worker/**/*.d.ts"
+	],
+	"compilerOptions": {
+		"jsx": "preserve",
+		"verbatimModuleSyntax": true,
+		"isolatedModules": true,
+		"lib": [
+			"esnext",
+			"DOM",
+			"DOM.Iterable"
+		],
+		"module": "esnext",
+		"target": "esnext",
+		"noEmit": true,
+		"allowJs": true,
+		"checkJs": true,
+		"esModuleInterop": true,
+		"forceConsistentCasingInFileNames": true,
+		"resolveJsonModule": true,
+		"skipLibCheck": true,
+		"sourceMap": true,
+		"strict": true,
+		"moduleResolution": "bundler",
+		"incremental": true,
+		"plugins": [
+			{
+				"name": "next"
+			}
+		],
+		"paths": {
+			"@/*": [
+				"./src/*"
+			]
+		}
+	}
+}

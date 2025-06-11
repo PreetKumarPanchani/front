@@ -1,0 +1,68 @@
+body {
+	--max-width: min(100%, 1140px);
+	--margin: auto;
+	margin: 0;
+}
+
+body > main,
+body > header > .header,
+body > footer > .footer {
+	max-width: var(--max-width);
+	margin: var(--margin);
+}
+
+body > main {
+	display: flex;
+}
+
+body > header {
+	padding: 0.75em 0;
+	border-bottom: 1px solid var(--theme-text-color);
+}
+
+footer {
+	border-top: 1px solid var(--theme-text-color);
+}
+
+body > main > .sidebar {
+	/* flex: 0 0 250px; */
+	/* min-width: min-content; */
+	width: 250px;
+	opacity: 1;
+	visibility: visible;
+	transition: all 0.3s ease;
+	transition-property: width, opacity, visibility;
+}
+
+body > main > .sidebar.is-collapsed {
+	/* flex: none; */
+	min-width: 0;
+	visibility: hidden;
+	width: 0px;
+	opacity: 0;
+}
+
+body > main > .main {
+	flex: 1;
+	min-width: 0;
+	overflow: auto;
+}
+
+@media (max-width: 767px) {
+	body > main {
+		flex-direction: column;
+	}
+
+	body > main > .sidebar {
+		max-height: var(--sidebar-scroll-height);
+		transition-property: max-height, opacity, visibility;
+
+		min-width: min-content !important;
+		width: initial !important;
+		/* !important so they don't need to be duplicated below */
+	}
+
+	body > main > .sidebar.is-collapsed {
+		max-height: 0px;
+	}
+}

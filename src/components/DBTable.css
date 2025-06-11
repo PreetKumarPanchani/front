@@ -1,0 +1,32 @@
+:root.light {
+	--db-table-border-color: hsl(210, 20%, 85%);
+	--db-table-background-color: hsl(0, 0%, 90%);
+}
+
+:root.dark {
+	--db-table-border-color: hsl(210, 5%, 25%);
+	--db-table-background-color: hsl(240, 7%, 24%);
+}
+
+.db-table-wrapper {
+	display: block;
+	position: relative;
+	overflow: auto;
+}
+
+table.db-table {
+	border-collapse: collapse;
+	text-align: left;
+}
+
+table.db-table td,
+table.db-table th {
+	padding: 0.375em 0.625em;
+	border: 1px solid var(--db-table-border-color);
+}
+
+table.db-table th {
+	font-family: monospace;
+	font-size: 1.125em;
+	background-color: var(--db-table-background-color);
+}
