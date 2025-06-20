@@ -29,6 +29,8 @@ export default function Sidebar() {
 			<SidebarLink href="/orders" text="Orders" />
 			<SidebarLink href="/deliveries" text="Deliveries" />
 			<SidebarLink href="/admin" text="Admin" />
+			<SidebarLink href="/dashboard/forge" text="Sales Forecasting" />
+			<SidebarLink href="/db-agent" text="Database Agent" />
 		</div>
 	);
 }

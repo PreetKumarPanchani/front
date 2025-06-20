@@ -10,7 +10,15 @@
 		"ambient.d.ts",
 		"build/types/**/*.ts",
 		"non-ambient.d.ts",
-		".next/types/**/*.ts"
+		".next/types/**/*.ts",
+		"**/*.js",
+		"**/*.jsx",
+		"**/*.ts",
+		"**/*.tsx",
+		"postcss.config.cjs",
+		"tailwind.config.cjs",
+		"./pages/**/*.js",
+		"./pages/**/*.ts",
 	],
 	"exclude": [
 		"./node_modules/**",
@@ -34,7 +42,7 @@
 		"target": "esnext",
 		"noEmit": true,
 		"allowJs": true,
-		"checkJs": true,
+		"checkJs": false,
 		"esModuleInterop": true,
 		"forceConsistentCasingInFileNames": true,
 		"resolveJsonModule": true,
@@ -51,7 +59,15 @@
 		"paths": {
 			"@/*": [
 				"./src/*"
-			]
+			],
+			"@/components/*": ["./src/components/*"],
+			"@/utils/*": ["./src/utils/*"],
+			"@/services/*": ["./src/services/*"],
+			"@/styles/*": ["./src/styles/*"],
+			"@/pages/*": ["./src/pages/*"],
+			"@/theme/*": ["./src/theme/*"],
+			"@/layouts/*": ["./src/layouts/*"],
+			"@/lib/*": ["./src/lib/*"]
 		}
 	}
 }

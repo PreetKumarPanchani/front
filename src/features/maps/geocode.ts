@@ -2,6 +2,7 @@ import 'server-only';
 
 import { type MapLocation } from '@/app/deliveries/deliveryTypes';
 import { getCache, updateCache, type LocationCache } from '@/server/cache';
+import { request } from 'undici';
 
 async function waitForGeoApifyBatch(
 	url: string,
@@ -22,20 +23,21 @@ async function waitForGeoApifyBatch(
 		attempt_no: number
 	) {
 		console.log('Attempt: ' + attempt_no);
-		const result = await fetch(url);
-		if (result.status === 200) {
-			const success = await result.json();
+		const result = await request(url);
+
+		if (result.statusCode === 200) {
+			const success = await result.body.json();
 			resolve(success as Finished[]);
 		} else if (attempt_no >= max_requests) {
 			reject('Max amount of attempts achived');
-		} else if (result.status === 202) {
+		} else if (result.statusCode === 202) {
 			// Check again after timeout
 			setTimeout(() => {
 				repeatUntilSuccess(resolve, reject, attempt_no + 1);
 			}, timeout_ms);
 		} else {
 			// Something went wrong
-			reject(await result.json());
+			reject(await result.body.json());
 		}
 	}
 }

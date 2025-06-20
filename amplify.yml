@@ -3,10 +3,14 @@ frontend:
   phases:
     preBuild:
       commands:
+        - nvm use 20
         - npm ci --cache .npm --prefer-offline
     build:
       commands:
         - env | grep -e DB_URL -e GEOAPIFY_KEY >> .env.production
+        - echo "NEXT_PUBLIC_API_URL_DBAgent=https://e39gefrnpq.eu-west-2.awsapprunner.com" > .env.production
+        - echo "NEXT_PUBLIC_API_URL_Forcast=https://mm2xymkp2i.eu-west-2.awsapprunner.com/api/v1" >> .env.production
+        - echo "NEXT_PUBLIC_WS_GATEWAY=wss://5nu02h2v13.execute-api.eu-west-2.amazonaws.com/production" >> .env.production
         - npm run build
   artifacts:
     baseDirectory: .next
